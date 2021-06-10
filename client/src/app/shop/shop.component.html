@@ -1,7 +1,8 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
-    <section class="col-3">
-      <h5 class="text-warning ml-3">Sort</h5>
+    <section class="col-lg-3 mt-3">
+      <ng-container *ngIf="types && brands">
+             <h5 class="text-warning ml-3">Sort</h5>
       <select
         class="custom-select mb-3"
         (change)="onSortSelected($event.target.value)"
@@ -35,9 +36,9 @@
           {{ type.name }}
         </li>
       </ul>
+      </ng-container>
     </section>
-
-    <section class="col-9">
+    <section class="col-lg-9">
       <div class="d-flex justify-content-between align-items-center pb-2">
         <app-paging-header
              [totalCount]="totalCount"
@@ -59,7 +60,7 @@
       </div>
 
       <div class="row">
-        <div class="col-4 mb-4" *ngFor="let product of products">
+        <div class="mb-4 col-md-3 col-sm-3" *ngFor="let product of products">
           <app-product-item [product]="product"></app-product-item>
         </div>
       </div>
